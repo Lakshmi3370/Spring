@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans     
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+   
+  <!--  <context:component-scan base-package="com.xworkz.spring_annotation"/>--> 
+  
+  <bean id="bean" class="com.xworkz.spring_annotation.water.WaterBean" autowire="constructor">
+  <constructor-arg value="true" index="0"></constructor-arg>
+  <constructor-arg value="Blue" index="1"></constructor-arg>
+  <constructor-arg value="5.4" index="2"></constructor-arg>
+  </bean>
+  
+    <bean id="bean1" class="com.xworkz.spring_annotation.water.FishBean" autowire="constructor">
+  <constructor-arg value="shark" index="0"/>
+  <constructor-arg value="Blue" index="1"/>
+  <constructor-arg ref="waterbean"/>
+  
+  </bean>
+
+</beans>
